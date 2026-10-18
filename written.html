@@ -4,9 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Section B — Written</title>
+  <meta name="theme-color" content="#f5f1e9">
+  <title>Section B — Written Examination</title>
   <link rel="stylesheet" href="exam.css">
-  <script src="exam.js" defer></script>
+  <script>
+  window.jsPDFReady = new Promise((resolve, reject) => {
+    const cdns = [
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js",
+      "https://unpkg.com/jspdf@2.5.2/dist/jspdf.umd.min.js"
+    ];
+
+    let index = 0;
+
+    function loadNextCDN() {
+      if (index >= cdns.length) {
+        reject(new Error("All jsPDF CDNs failed to load."));
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.src = cdns[index++];
+      script.onload = () => {
+        if (window.jspdf?.jsPDF) {
+          resolve(window.jspdf.jsPDF);
+        } else {
+          loadNextCDN();
+        }
+      };
+
+      script.onerror = loadNextCDN;
+      document.head.appendChild(script);
+    }
+
+    loadNextCDN();
+  });
+</script>
+
+<script src="exam.js" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -23,78 +57,164 @@
   <main class="page-shell">
     <div class="document">
       <div class="document-topline">
-        <span>SECTION B / DESCRIPTIVE</span>
+        <span>SECTION B / WRITTEN</span>
         <span class="status"><i></i> IN PROGRESS</span>
       </div>
 
       <div class="paper-heading">
-        <p class="eyebrow">WRITTEN EXAMINATION</p>
-        <h1>Explain yourself<span>.</span></h1>
+        <p class="eyebrow">DESCRIPTIVE ANSWER SHEET</p>
+        <h1>Ab likh ke dikha<span>.</span></h1>
         <p class="intro">
-          In this section, your own words will be required.
-          Unfortunately, there is no option C.
+          MCQ mein tukke maar liye honge. Ab apne words mein bata, madam.
         </p>
       </div>
 
       <div class="written-notice">
-        <span class="notice-icon">!</span>
-        <div>
-          <strong>Candidate instructions</strong>
-          <p>
-            Write your answers clearly. Specific memories may be
-            useful. “Mujhe yaad nahi” is a risky academic strategy.
+        <strong>IMPORTANT INSTRUCTIONS</strong>
+        <ul>
+          <li>Saare questions attempt karna compulsory hai.</li>
+          <li>Answers apne words mein likhna.</li>
+          <li>Spelling mistakes maaf ho sakti hain, friendship ki details bhoolna nahi.</li>
+          <li>Submit karne ke baad complete MCQ + written PDF download karna.</li>
+        </ul>
+      </div>
+
+      <div class="progress-heading">
+        <span>SECTION B PROGRESS</span>
+        <span id="written-progress-label">0 / 5 ANSWERED</span>
+      </div>
+
+      <div class="progress-track" id="written-progress-track"
+           role="progressbar" aria-label="Written answers progress"
+           aria-valuemin="0" aria-valuemax="5" aria-valuenow="0">
+        <div class="progress-fill" id="written-progress-fill"></div>
+      </div>
+
+      <form id="written-form">
+        <section class="written-question">
+          <div class="question-meta">
+            <span class="question-tag">QUESTION 01</span>
+            <span class="marks-tag">MARKS: 02</span>
+          </div>
+          <h2>Humari friendship ki shuruaat kab aur kaise hui thi?</h2>
+          <p class="question-hint">
+            Semester, time ya koi memory yaad ho toh detail mein likh.
+            Sirf "college mein" likh ke marks expect mat karna. 💀
           </p>
-        </div>
-      </div>
+          <textarea id="written-q1" name="written-q1"
+            placeholder="Meri aur is namoone ki friendship shuru hui thi..."
+            rows="4" required></textarea>
+          <div class="answer-meta"><span>Answer in your own words</span><span>02 MARKS</span></div>
+        </section>
 
-      <section class="written-question">
-        <div class="question-meta">
-          <span class="question-tag">QUESTION 01</span>
-          <span class="marks-tag">MARKS: TBA</span>
+        <section class="written-question">
+          <div class="question-meta">
+            <span class="question-tag">QUESTION 02</span>
+            <span class="marks-tag">MARKS: 02</span>
+          </div>
+          <h2>Domino's wala promise exactly kya tha, aur ab tak pending kyun hai?</h2>
+          <p class="question-hint">
+            Second semester se case chal raha hai. Board ko poori kahaani chahiye.
+          </p>
+          <textarea id="written-q2" name="written-q2"
+            placeholder="Domino's case ki poori history yeh hai..."
+            rows="4" required></textarea>
+          <div class="answer-meta"><span>Answer in your own words</span><span>02 MARKS</span></div>
+        </section>
+
+        <section class="written-question">
+          <div class="question-meta">
+            <span class="question-tag">QUESTION 03</span>
+            <span class="marks-tag">MARKS: 02</span>
+          </div>
+          <h2>Birthday archive ke kisi bhi 3 sections ke naam likho.</h2>
+          <p class="question-hint">
+            Website explore ki thi na? Ab prove karne ka time hai.
+          </p>
+          <textarea id="written-q3" name="written-q3"
+            placeholder="1. ...&#10;2. ...&#10;3. ..."
+            rows="3" required></textarea>
+          <div class="answer-meta"><span>List any three sections</span><span>02 MARKS</span></div>
+        </section>
+
+        <section class="written-question">
+          <div class="question-meta">
+            <span class="question-tag">QUESTION 04</span>
+            <span class="marks-tag">MARKS: 02</span>
+          </div>
+          <h2>Archive mein aisi kaunsi ek cheez thi jispe tujhe hasi aayi ya jo tujhe yaad reh gayi?</h2>
+          <p class="question-hint">
+            Koi section, line, joke ya moment. "Sab achha tha" likh ke mat bachna.
+          </p>
+          <textarea id="written-q4" name="written-q4"
+            placeholder="Mujhe sabse zyada yaad raha..."
+            rows="4" required></textarea>
+          <div class="answer-meta"><span>Be specific</span><span>02 MARKS</span></div>
+        </section>
+
+        <section class="written-question">
+          <div class="question-meta">
+            <span class="question-tag">QUESTION 05</span>
+            <span class="marks-tag">MARKS: 02</span>
+          </div>
+          <h2>Iss poore birthday surprise mein tera favourite part kya tha, aur kyun?</h2>
+          <p class="question-hint">
+            Honest answer dena. Examiner ko butter karne ke extra marks nahi milenge.
+          </p>
+          <textarea id="written-q5" name="written-q5"
+            placeholder="Mera favourite part tha... kyunki..."
+            rows="5" required></textarea>
+          <div class="answer-meta"><span>Honest answer expected</span><span>02 MARKS</span></div>
+        </section>
+
+        <div class="written-save-status" id="written-save-status" aria-live="polite">
+          Answers abhi save nahi hue.
         </div>
-        <h2>Your first written question will appear here.</h2>
+
+        <div class="page-navigation written-navigation">
+          <a class="secondary-button" href="mcq.html">← SECTION A</a>
+          <button class="primary-button" type="submit" id="finish-exam">
+            SUBMIT ANSWER SHEET <span>→</span>
+          </button>
+        </div>
+      </form>
+
+      <section class="written-submission" id="written-submission" hidden aria-live="polite">
+        <p class="eyebrow">SUBMISSION STATUS</p>
+        <h2>Answer sheet received.</h2>
         <p>
-          A long-answer question based on the website will go in this space.
+          Waah madam, exam complete kar liya. 😭 Ab combined answer sheet
+          download karke examiner ko bhej de.
         </p>
-        <div class="answer-lines" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
-        </div>
-        <p class="placeholder-note">WRITTEN ANSWER AREA · DEMO ONLY</p>
-      </section>
 
-      <section class="written-question">
-        <div class="question-meta">
-          <span class="question-tag">QUESTION 02</span>
-          <span class="marks-tag">MARKS: TBA</span>
-        </div>
-        <h2>Another question goes here.</h2>
-        <p>
-          More space for the candidate to prove that the website was
-          actually explored.
-        </p>
-        <div class="answer-lines" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
-        </div>
-        <p class="placeholder-note">WRITTEN ANSWER AREA · DEMO ONLY</p>
-      </section>
-
-      <div class="page-navigation">
-        <a class="secondary-button" href="mcq.html">← SECTION A</a>
-        <button class="primary-button" id="finish-exam" type="button">
-          FINISH EXAM <span>→</span>
+        <button class="primary-button result-button" type="button" id="download-pdf">
+          DOWNLOAD COMPLETE PDF ↓
         </button>
-      </div>
+
+<div class="exit-exam-wrap">
+  <p class="exit-exam-note">
+    Examination khatam. Ab ek zaroori investigation baaki hai.
+  </p>
+  <a href="complaint.html" class="exit-exam-button">
+    🚨 EXIT EXAMINATION
+  </a>
+</div>
+
+
+        <button class="secondary-button" type="button" id="edit-answers">
+          ← ANSWERS EDIT KARNE HAIN
+        </button>
+      </section>
 
       <p class="fine-print">
-        Once the actual exam is implemented, make sure all answers
-        are complete before submission.
+        N.D. Examination Board reserves the right to judge your answers dramatically.
       </p>
     </div>
   </main>
 
   <footer class="site-footer">
     <span>SECTION B · WRITTEN</span>
-    <span>ND / 001</span>
+    <span>ND / 002</span>
   </footer>
 </body>
 </html>

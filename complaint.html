@@ -1,0 +1,240 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff0e7">
+
+  <title>The Complaint Registry™</title>
+
+  <link rel="stylesheet" href="exam.css">
+  <link rel="stylesheet" href="complaint.css">
+</head>
+
+<body>
+    
+<div id="red-alert-loader" class="red-alert-loader">
+  <div class="alert-scanline"></div>
+
+  <div class="alert-content">
+    <div class="alert-icon">⚠</div>
+
+    <p class="alert-overline">FRIENDSHIP SECURITY SYSTEM</p>
+
+    <h1>RED ALERT</h1>
+
+    <p id="alert-message" class="alert-message">
+      EXAMINATION TERMINATED...
+    </p>
+
+    <div class="alert-progress">
+      <div id="alert-progress-fill"></div>
+    </div>
+
+    <p class="alert-status">INITIATING FRIENDSHIP AUDIT</p>
+    <p class="alert-file">CASE FILE: DARSHIKA-013</p>
+  </div>
+</div>
+
+  <header class="topbar">
+    <a href="written.html" class="registry-back">← Back to Examination</a>
+    <span class="registry-stamp">FILE NO. 013</span>
+  </header>
+
+  <main class="registry-page">
+    <div class="registry-eyebrow">
+      DEPARTMENT OF AYUSH KI HARKATEIN
+    </div>
+
+    <section class="registry-hero">
+      <div class="registry-icon">📋</div>
+
+      <p class="registry-kicker">OFFICIALLY UNOFFICIAL</p>
+
+      <h1>
+        The Complaint<br>
+        <span>Registry™</span>
+      </h1>
+
+      <p class="registry-intro">
+        Achha ji, examination toh de diya.
+        Ab jab mauka mila hai, toh batao —
+        <strong>is bande ki kaunsi harkatein report karni hain?</strong>
+      </p>
+
+      <div class="registry-warning">
+        ⚠️ WARNING: Yahan sach bolne par koi negative marking nahi hai.
+      </div>
+    </section>
+
+    <form id="complaint-form" class="registry-form">
+      <div class="registry-form-heading">
+        <span>FORM CR-013</span>
+        <span>CONFIDENTIAL-ISH</span>
+      </div>
+
+      <div class="registry-field">
+        <label for="complaint-name">
+          01. Complainant ka naam
+          <span>(optional)</span>
+        </label>
+        <input
+          id="complaint-name"
+          name="complaint-name"
+          type="text"
+          placeholder="Darshika, obviously."
+          maxlength="100"
+        >
+      </div>
+
+      <div class="registry-field">
+        <label for="complaint-category">
+          02. Complaint kis department se related hai?
+        </label>
+        <select id="complaint-category" name="complaint-category">
+          <option value="Annoying habits">Annoying habits™</option>
+          <option value="Communication">Communication issues</option>
+          <option value="Time and priorities">Time aur priorities</option>
+          <option value="Something I said or did">Kuch bola ya kiya tha</option>
+          <option value="Things left unsaid">Jo baat keh nahi paayi</option>
+          <option value="Suggestions">Suggestions for improvement</option>
+          <option value="Appreciation">Complaint nahi, appreciation hai</option>
+          <option value="Other">Other / miscellaneous lafda</option>
+        </select>
+      </div>
+
+      <div class="registry-field">
+        <label for="complaint-main">
+          03. Teri asli complaint kya hai? *
+        </label>
+        <p class="registry-hint">
+          Koi habit, koi baat, koi moment — jo tujhe genuinely bother
+          karta hai ya jo tu chahti hai ki main samjhun.
+        </p>
+        <textarea
+          id="complaint-main"
+          name="complaint-main"
+          rows="5"
+          maxlength="5000"
+          placeholder="Theek se sun raha hoon. Jo bolna hai, bol..."
+          required
+        ></textarea>
+      </div>
+
+      <div class="registry-field">
+        <label for="complaint-example">
+          04. Koi specific incident ya example?
+          <span>(optional)</span>
+        </label>
+        <p class="registry-hint">
+          Agar koi particular moment yaad hai, toh bata sakti hai.
+          Context samajhne mein help milegi.
+        </p>
+        <textarea
+          id="complaint-example"
+          name="complaint-example"
+          rows="4"
+          maxlength="5000"
+          placeholder="Jaise uss din jab..."
+        ></textarea>
+      </div>
+
+      <div class="registry-field">
+        <label for="complaint-change">
+          05. Main kya better kar sakta hoon?
+          <span>(optional)</span>
+        </label>
+        <textarea
+          id="complaint-change"
+          name="complaint-change"
+          rows="4"
+          maxlength="5000"
+          placeholder="Aage se tu chahegi ki main..."
+        ></textarea>
+      </div>
+
+      <div class="registry-field">
+        <label for="complaint-extra">
+          06. Kuch aur kehna hai?
+          <span>(optional)</span>
+        </label>
+        <textarea
+          id="complaint-extra"
+          name="complaint-extra"
+          rows="4"
+          maxlength="5000"
+          placeholder="Suggestions, feedback, appreciation, gossip... anything."
+        ></textarea>
+      </div>
+
+      <div class="registry-reassurance">
+        <span class="registry-heart">♡</span>
+        <div>
+          <strong>Jokes apart, this part is real.</strong>
+          <p>
+            Tujhe har baat ko funny bana ke bolne ki zaroorat nahi hai.
+            Jo feel hota hai, honestly likh. Main ise samajhne ke liye
+            padhunga, argue karne ke liye nahi.
+          </p>
+        </div>
+      </div>
+
+      <p class="registry-privacy">
+        Your answers stay in this browser on this device until you
+        clear them. They are not automatically sent to Ayush.
+        Download the PDF and share it with him when you're ready.
+      </p>
+
+      <button type="submit" class="registry-download">
+        DOWNLOAD MY COMPLAINT PDF ↓
+      </button>
+
+      <p id="registry-status" class="registry-status" aria-live="polite">
+        Your thoughts are saved locally as you type.
+      </p>
+    </form>
+
+    <footer class="registry-footer">
+      <p>THE FRIENDSHIP DEPARTMENT © 2026</p>
+      <p>Complaint received. Ego under investigation. ♡</p>
+    </footer>
+  </main>
+
+  <script>
+    window.jsPDFReady = new Promise((resolve, reject) => {
+      const cdns = [
+        "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js",
+        "https://unpkg.com/jspdf@2.5.2/dist/jspdf.umd.min.js"
+      ];
+
+      let index = 0;
+
+      function loadNextCDN() {
+        if (index >= cdns.length) {
+          reject(new Error("Could not load jsPDF."));
+          return;
+        }
+
+        const script = document.createElement("script");
+        script.src = cdns[index++];
+
+        script.onload = () => {
+          if (window.jspdf?.jsPDF) {
+            resolve(window.jspdf.jsPDF);
+          } else {
+            loadNextCDN();
+          }
+        };
+
+        script.onerror = loadNextCDN;
+        document.head.appendChild(script);
+      }
+
+      loadNextCDN();
+    });
+  </script>
+
+  <script src="complaint.js" defer></script>
+</body>
+</html>
