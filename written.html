@@ -1,220 +1,57 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f5f1e9">
-  <title>Section B — Written Examination</title>
-  <link rel="stylesheet" href="exam.css">
-  <script>
-  window.jsPDFReady = new Promise((resolve, reject) => {
-    const cdns = [
-      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js",
-      "https://unpkg.com/jspdf@2.5.2/dist/jspdf.umd.min.js"
-    ];
-
-    let index = 0;
-
-    function loadNextCDN() {
-      if (index >= cdns.length) {
-        reject(new Error("All jsPDF CDNs failed to load."));
-        return;
-      }
-
-      const script = document.createElement("script");
-      script.src = cdns[index++];
-      script.onload = () => {
-        if (window.jspdf?.jsPDF) {
-          resolve(window.jspdf.jsPDF);
-        } else {
-          loadNextCDN();
-        }
-      };
-
-      script.onerror = loadNextCDN;
-      document.head.appendChild(script);
-    }
-
-    loadNextCDN();
-  });
-</script>
-
-<script src="exam.js" defer></script>
+  <title>STEP 04 – One Last Thing</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#0b0f19;color:#f1f5f9;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow-x:hidden;position:relative}
+    /* Preloader (kept identical to original design) */
+    #preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:#0b0f19;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity .5s ease,visibility .5s ease}
+    #preloader.fade-out{opacity:0;visibility:hidden}
+    .loader-spinner{width:48px;height:48px;border:3px solid rgba(255,255,255,.1);border-top:3px solid #38bdf8;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:16px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .loader-text{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:#94a3b8;letter-spacing:1px}
+    .glow{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(56,189,248,.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1}
+    .card{background:rgba(17,24,39,.85);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(12px);border-radius:20px;padding:48px 40px;max-width:520px;width:90%;text-align:center;position:relative;z-index:2;box-shadow:0 25px 50px -12px rgba(0,0,0,.6);animation:fadeIn .6s ease-out}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+    .step-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#38bdf8;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);padding:6px 16px;border-radius:9999px;margin-bottom:24px}
+    .main-title{font-size:2.4rem;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.5px}
+    .subtitle{font-size:1.15rem;color:#94a3b8;margin-bottom:36px;line-height:1.5}
+    .action-container{display:flex;flex-direction:column;align-items:center;gap:16px}
+    .cta-button{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:16px 28px;font-size:1.05rem;font-weight:700;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:1px;text-decoration:none;color:#0b0f19;background:#fff;border:none;border-radius:12px;cursor:pointer;transition:all .2s ease;box-shadow:0 4px 15px rgba(255,255,255,.15)}
+    .cta-button:hover{background:#38bdf8;color:#0b0f19;transform:translateY(-2px);box-shadow:0 8px 25px rgba(56,189,248,.35)}
+    .cta-button:active{transform:translateY(0)}
+    .trust-text{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:#64748b;font-style:italic}
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="exam.html">
-      <span class="brand-mark">ND</span>
-      <span>
-        <strong>N.D. EXAMINATION BOARD</strong>
-        <small>Department of Friendship Affairs</small>
-      </span>
-    </a>
-    <span class="exam-code">PAPER 02</span>
-  </header>
+  <!-- Preloader (unchanged) -->
+  <div id="preloader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">PREPARING SOMETHING SPECIAL...</div>
+  </div>
 
-  <main class="page-shell">
-    <div class="document">
-      <div class="document-topline">
-        <span>SECTION B / WRITTEN</span>
-        <span class="status"><i></i> IN PROGRESS</span>
-      </div>
+  <div class="glow"></div>
 
-      <div class="paper-heading">
-        <p class="eyebrow">DESCRIPTIVE ANSWER SHEET</p>
-        <h1>Ab likh ke dikha<span>.</span></h1>
-        <p class="intro">
-          MCQ mein tukke maar liye honge. Ab apne words mein bata, madam.
-        </p>
-      </div>
-
-      <div class="written-notice">
-        <strong>IMPORTANT INSTRUCTIONS</strong>
-        <ul>
-          <li>Saare questions attempt karna compulsory hai.</li>
-          <li>Answers apne words mein likhna.</li>
-          <li>Spelling mistakes maaf ho sakti hain, friendship ki details bhoolna nahi.</li>
-          <li>Submit karne ke baad complete MCQ + written PDF download karna.</li>
-        </ul>
-      </div>
-
-      <div class="progress-heading">
-        <span>SECTION B PROGRESS</span>
-        <span id="written-progress-label">0 / 5 ANSWERED</span>
-      </div>
-
-      <div class="progress-track" id="written-progress-track"
-           role="progressbar" aria-label="Written answers progress"
-           aria-valuemin="0" aria-valuemax="5" aria-valuenow="0">
-        <div class="progress-fill" id="written-progress-fill"></div>
-      </div>
-
-      <form id="written-form">
-        <section class="written-question">
-          <div class="question-meta">
-            <span class="question-tag">QUESTION 01</span>
-            <span class="marks-tag">MARKS: 02</span>
-          </div>
-          <h2>Humari friendship ki shuruaat kab aur kaise hui thi?</h2>
-          <p class="question-hint">
-            Semester, time ya koi memory yaad ho toh detail mein likh.
-            Sirf "college mein" likh ke marks expect mat karna. 💀
-          </p>
-          <textarea id="written-q1" name="written-q1"
-            placeholder="Meri aur is namoone ki friendship shuru hui thi..."
-            rows="4" required></textarea>
-          <div class="answer-meta"><span>Answer in your own words</span><span>02 MARKS</span></div>
-        </section>
-
-        <section class="written-question">
-          <div class="question-meta">
-            <span class="question-tag">QUESTION 02</span>
-            <span class="marks-tag">MARKS: 02</span>
-          </div>
-          <h2>Domino's wala promise exactly kya tha, aur ab tak pending kyun hai?</h2>
-          <p class="question-hint">
-            Second semester se case chal raha hai. Board ko poori kahaani chahiye.
-          </p>
-          <textarea id="written-q2" name="written-q2"
-            placeholder="Domino's case ki poori history yeh hai..."
-            rows="4" required></textarea>
-          <div class="answer-meta"><span>Answer in your own words</span><span>02 MARKS</span></div>
-        </section>
-
-        <section class="written-question">
-          <div class="question-meta">
-            <span class="question-tag">QUESTION 03</span>
-            <span class="marks-tag">MARKS: 02</span>
-          </div>
-          <h2>Birthday archive ke kisi bhi 3 sections ke naam likho.</h2>
-          <p class="question-hint">
-            Website explore ki thi na? Ab prove karne ka time hai.
-          </p>
-          <textarea id="written-q3" name="written-q3"
-            placeholder="1. ...&#10;2. ...&#10;3. ..."
-            rows="3" required></textarea>
-          <div class="answer-meta"><span>List any three sections</span><span>02 MARKS</span></div>
-        </section>
-
-        <section class="written-question">
-          <div class="question-meta">
-            <span class="question-tag">QUESTION 04</span>
-            <span class="marks-tag">MARKS: 02</span>
-          </div>
-          <h2>Archive mein aisi kaunsi ek cheez thi jispe tujhe hasi aayi ya jo tujhe yaad reh gayi?</h2>
-          <p class="question-hint">
-            Koi section, line, joke ya moment. "Sab achha tha" likh ke mat bachna.
-          </p>
-          <textarea id="written-q4" name="written-q4"
-            placeholder="Mujhe sabse zyada yaad raha..."
-            rows="4" required></textarea>
-          <div class="answer-meta"><span>Be specific</span><span>02 MARKS</span></div>
-        </section>
-
-        <section class="written-question">
-          <div class="question-meta">
-            <span class="question-tag">QUESTION 05</span>
-            <span class="marks-tag">MARKS: 02</span>
-          </div>
-          <h2>Iss poore birthday surprise mein tera favourite part kya tha, aur kyun?</h2>
-          <p class="question-hint">
-            Honest answer dena. Examiner ko butter karne ke extra marks nahi milenge.
-          </p>
-          <textarea id="written-q5" name="written-q5"
-            placeholder="Mera favourite part tha... kyunki..."
-            rows="5" required></textarea>
-          <div class="answer-meta"><span>Honest answer expected</span><span>02 MARKS</span></div>
-        </section>
-
-        <div class="written-save-status" id="written-save-status" aria-live="polite">
-          Answers abhi save nahi hue.
-        </div>
-
-        <div class="page-navigation written-navigation">
-          <a class="secondary-button" href="mcq.html">← SECTION A</a>
-          <button class="primary-button" type="submit" id="finish-exam">
-            SUBMIT ANSWER SHEET <span>→</span>
-          </button>
-        </div>
-      </form>
-
-      <section class="written-submission" id="written-submission" hidden aria-live="polite">
-        <p class="eyebrow">SUBMISSION STATUS</p>
-        <h2>Answer sheet received.</h2>
-        <p>
-          Waah madam, exam complete kar liya. 😭 Ab combined answer sheet
-          download karke examiner ko bhej de.
-        </p>
-
-        <button class="primary-button result-button" type="button" id="download-pdf">
-          DOWNLOAD COMPLETE PDF ↓
-        </button>
-
-<div class="exit-exam-wrap">
-  <p class="exit-exam-note">
-    Examination khatam. Ab ek zaroori investigation baaki hai.
-  </p>
-  <a href="complaint.html" class="exit-exam-button">
-    🚨 EXIT EXAMINATION
-  </a>
-</div>
-
-
-        <button class="secondary-button" type="button" id="edit-answers">
-          ← ANSWERS EDIT KARNE HAIN
-        </button>
-      </section>
-
-      <p class="fine-print">
-        N.D. Examination Board reserves the right to judge your answers dramatically.
-      </p>
+  <main class="card">
+    <div class="step-badge">STEP 04</div>
+    <h1 class="main-title">Ek last thing.</h1>
+    <p class="subtitle">Bas ek aur click. Pakka.</p>
+    <div class="action-container">
+      <a href="complaint.html" class="cta-button" id="lastClickBtn">THE LAST CLICK →</a>
+      <p class="trust-text">Trust me. I'm a developer.</p>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <span>SECTION B · WRITTEN</span>
-    <span>ND / 002</span>
-  </footer>
+  <script>
+    // Hide preloader after page loads
+    window.addEventListener('load',()=>{
+      const preloader=document.getElementById('preloader');
+      setTimeout(()=>{preloader.classList.add('fade-out');},600);
+    });
+  </script>
 </body>
 </html>

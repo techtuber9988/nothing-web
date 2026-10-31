@@ -24,7 +24,6 @@ const homepageFootnote = $("#homepage-footnote");
 const body = document.body;
 
 let clickCount = 0;
-let examAnnounced = false;
 
 // =========================================
 // FAKE TERMINAL MESSAGES
@@ -260,28 +259,9 @@ function updateHomepage(stage) {
   content.style.animation = "homepage-appear 0.4s ease both";
 }
 
-function announceExam() {
-  examAnnounced = true;
 
-  homepageEyebrow.textContent = "UNEXPECTED DEVELOPMENT";
-  homepageHeading.textContent = "EXAM TIME.";
-  homepageDescription.textContent =
-    "Itni mehnat se website banayi thi. Ab prove kar ki tune dekhi bhi hai.";
-  moveButton.textContent = "START THE EXAM →";
-  homepageFootnote.textContent =
-    "Friendship Archive Final Examination · Coming up next.";
-
-  document.title = "Final Examination | Nothing Department";
-}
 
 moveButton.addEventListener("click", () => {
-  
-if (examAnnounced) {
-  window.location.href = "exam.html";
-  return;
-}
-
-
   clickCount++;
 
   // Clicks 1–4 show the corresponding stage.
@@ -290,8 +270,8 @@ if (examAnnounced) {
     return;
   }
 
-  // Fifth click: exam announcement.
-  announceExam();
+  // Fifth click (STEP 04 / THE LAST CLICK): go directly to complaint page.
+  window.location.href = "complaint.html";
 });
 
 // =========================================
